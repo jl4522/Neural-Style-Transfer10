@@ -18,6 +18,8 @@ from keras import backend as K
 from keras.utils.data_utils import get_file
 from keras.utils.layer_utils import convert_all_kernels_in_model
 
+import tensorflow as tf
+
 """
 Neural Style Transfer with Keras 2.0.5
 
@@ -29,6 +31,7 @@ Contains few improvements suggested in the paper Improving the Neural Algorithm 
 
 -----------------------------------------------------------------------------------------------------------------------
 """
+tf.compat.v1.disable_eager_execution()
 
 THEANO_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
 TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
