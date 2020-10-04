@@ -31,7 +31,6 @@ Contains few improvements suggested in the paper Improving the Neural Algorithm 
 
 -----------------------------------------------------------------------------------------------------------------------
 """
-tf.compat.v1.disable_eager_execution()
 
 THEANO_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
 TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
@@ -524,6 +523,8 @@ for i in range(len(feature_layers) - 1):
 loss = loss + total_variation_weight * total_variation_loss(combination_image)
 
 # get the gradients of the generated image wrt the loss
+
+tf.compat.v1.disable_eager_execution()
 grads = K.gradients(loss, combination_image)
 
 outputs = [loss]
